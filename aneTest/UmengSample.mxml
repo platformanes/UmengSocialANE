@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   width="462" height="563" applicationComplete="handler_appComp(event)">
+	<fx:Style source="androidQH360Sample.css"/>
+	<fx:Script>
+		<![CDATA[
+			import com.umeng.ane.UmengExtension;
+			
+			import mx.events.FlexEvent;
+			import mx.utils.ObjectUtil;
+			
+			private var isLang:Boolean = false;
+			private function handler_status($evt:StatusEvent):void
+			{
+				showInfo('------------------');
+				showInfo('level:'+$evt.level+ ',code:'+$evt.code);
+				showInfo('------------------');
+			}
+			
+			protected function handler_appComp($evt:FlexEvent):void 
+			{
+				UmengExtension.getInstance().addEventListener(StatusEvent.STATUS,handler_status);
+				
+			}
+			
+			protected function handler_getStorageBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				showInfo('--');
+			}
+			
+			
+			protected function handler_getSystemInfoBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				
+			}
+			
+			protected function handler_getPackageInfoBTNclick($evt:MouseEvent):void
+			{
+				showInfo('--');
+				
+			}
+			
+			
+			private function showInfo(...$args):void
+			{
+				var __info:String = '';
+				for (var i:int = 0; i < $args.length; i++) 
+				{
+					__info += $args[i] + File.lineEnding;
+				}
+				infoTA.appendText(__info);
+			}
+			
+			
+			
+			private function clearInfo():void
+			{
+				infoTA.text = '';
+			}
+			
+			
+			
+			protected function sdk_handle(event:MouseEvent):void
+			{
+				var b:Button = event.currentTarget as Button;
+				var $pattern:Vector.<String> = new Vector.<String>();
+				
+				switch(b.id)
+				{
+					
+					case "init":
+						UmengExtension.getInstance().UmengInit(true,true,"","com.umeng.share");
+						break;
+					
+					case "A":
+						$pattern[0] = "http://www.umeng.com/images/pic/banner_module_social.png";
+						$pattern[1] = "友盟社会化组件还不错，让移动应用快速整合社交分享功能。http://www.umeng.com/social";
+						UmengExtension.getInstance().UmengShare(0,$pattern);
+						break;
+					
+					
+					case "B":
+						$pattern[0] = "http://v.youku.com/v_show/id_XNTc0ODM4OTM2.html";
+						$pattern[1] = "http://www.umeng.com/images/pic/banner_module_social.png";
+						$pattern[2] = "友盟社会化组件视频";
+						$pattern[3] = "腾讯微博分享内容 Direct --来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能";
+						UmengExtension.getInstance().UmengShare(1,$pattern);
+						break;
+					
+					case "C":
+						$pattern[0] = "[我是要分享的字符串]我喜欢吃茄子 - byRect";
+						UmengExtension.getInstance().UmengShare(2,$pattern);
+						break;
+					
+					case "D":
+						UmengExtension.getInstance().UmengShare(3,$pattern);
+						break;
+					
+					case "E":
+						UmengExtension.getInstance().UmengShare(4,$pattern);
+						break;
+					
+					case "F":
+						UmengExtension.getInstance().UmengShare(5,$pattern);
+						break;
+					
+					case "G":
+						UmengExtension.getInstance().UmengShare(6,$pattern);
+						break;
+					
+					case "H":
+						UmengExtension.getInstance().UmengShare(7,$pattern);
+						break;
+					
+					case "I":
+						UmengExtension.getInstance().UmengShare(8,$pattern);
+						break;
+					
+					case "J":
+						UmengExtension.getInstance().UmengShare(9,$pattern);
+						break;
+					
+					case "K":
+						UmengExtension.getInstance().UmengShare(10,$pattern);
+						break;
+					
+					
+					
+					case "back1":
+						exit();
+						break;
+					
+				}
+			}
+			
+			
+			
+			private function exit():void
+			{
+				NativeApplication.nativeApplication.exit();   
+			}
+			
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:states>
+		<s:State name="fun1State"/>
+	</s:states>
+	
+	<s:HGroup width="100%" horizontalAlign="center">
+		<s:Label id="qh360" width="406" height="89" color="#6A13ED" fontFamily="Arial" fontWeight="bold"
+				 text="Umeng ANE (by Rect(rectvv@gmail.com))" textAlign="center" verticalAlign="middle"/>
+	</s:HGroup>
+	
+	
+	
+	<s:TileGroup id="share_button" includeIn="fun1State" width="100%" height="509">
+		
+		<s:Button id="init" width="100" label="初始化" click="sdk_handle(event)" fontSize="14"/>
+		<s:Button id="A" width="151" label="分享" click="sdk_handle(event)" fontSize="14"/>
+		<s:Button id="B" label="一键分享到腾讯微博" click="sdk_handle(event)"/>
+		<s:Button id="C" label="底层分享" click="sdk_handle(event)"/>
+		<s:Button id="D" label="自定义按钮分享到新浪微博" click="sdk_handle(event)"/>
+		<s:Button id="E" label="一键分享到所有授权平台" click="sdk_handle(event)"/>
+		<s:Button id="F" label="授权新浪微博" click="sdk_handle(event)"/>
+		<s:Button id="G" label="解除新浪授权" click="sdk_handle(event)"/>
+		<s:Button id="H" label="指定平台顺序" click="sdk_handle(event)"/>
+		<s:Button id="I" label="去掉豆瓣人人" click="sdk_handle(event)"/>
+		<s:Button id="J" label="关闭SSO" click="sdk_handle(event)"/>
+		<s:Button id="K" label="打开SSO" click="sdk_handle(event)"/>
+		<s:Button id="back1" label="返回" click="sdk_handle(event)"/>
+		
+	</s:TileGroup>	
+	
+	<s:VGroup width="100%" height="436" horizontalAlign="right">
+		<s:TextArea id="infoTA" width="100%" height="372" color="#030715" textAlign="left"/>
+		<s:HGroup>
+		</s:HGroup>
+	</s:VGroup>
+</s:Application>

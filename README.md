@@ -4,8 +4,10 @@ UmengSocialANE
 友盟社会化分享ANE android/IOS版(v3.3.5)
 ## UmengSocialANE iOS/Andorid版
 
-* 完全参照官方DEMO
-* 官方友盟:[传送门](http://dev.umeng.com/social)
+* 参照官方DEMO
+* 友盟SDK:[传送门](http://dev.umeng.com/social)
+* Android版已实现:`分享接口`,其他稍后
+* iOS版已实现:loading
 
 ## Building ANE
 > A.参照我博客的教程[传送门](http://www.shadowkong.com/archives/1090)
