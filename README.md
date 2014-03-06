@@ -13,7 +13,7 @@ UmengSocialANE
 > A.参照我博客的教程[传送门](http://www.shadowkong.com/archives/1090)
 
 ## Building APK
-
+* `BuildAPK/shareModule` 对应 `分享接口` 模块
 
 ## About Me
 
