@@ -2,7 +2,7 @@
 <swc xmlns="http://www.adobe.com/flash/swccatalog/9">
   <versions>
     <swc version="1.2" />
-    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+    <flex version="4.6.0" build="22920" minimumSupportedVersion="3.0.0" />
   </versions>
   <features>
     <feature-script-deps />
@@ -10,18 +10,18 @@
   </features>
   <libraries>
     <library path="library.swf">
-      <script name="_d718abd9ff513366780e28cd5f121842e36820d33e24fc246ba6e31c63aedbfc_flash_display_Sprite" mod="1394027243687" signatureChecksum="2840623849" >
-        <def id="_d718abd9ff513366780e28cd5f121842e36820d33e24fc246ba6e31c63aedbfc_flash_display_Sprite" /> 
-        <dep id="flash.system:Security" type="e" /> 
-        <dep id="AS3" type="n" /> 
-        <dep id="flash.display:Sprite" type="i" /> 
-      </script>
       <script name="com/umeng/ane/UmengEvents" mod="1393941858933" signatureChecksum="957440270" >
         <def id="com.umeng.ane:UmengEvents" /> 
         <dep id="AS3" type="n" /> 
         <dep id="Object" type="i" /> 
       </script>
-      <script name="com/umeng/ane/UmengExtension" mod="1394027239424" signatureChecksum="696565201" >
+      <script name="_58648d5a7e1d6027072aaac135268038f6e158b5734612aea5bc5f9e5e2f635c_flash_display_Sprite" mod="1394384620762" signatureChecksum="2819324279" >
+        <def id="_58648d5a7e1d6027072aaac135268038f6e158b5734612aea5bc5f9e5e2f635c_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/umeng/ane/UmengExtension" mod="1394384608846" signatureChecksum="2676215659" >
         <def id="com.umeng.ane:UmengExtension" /> 
         <dep id="flash.events:StatusEvent" type="e" /> 
         <dep id="flash.external:ExtensionContext" type="e" /> 
@@ -32,7 +32,7 @@
         <dep id="flash.events:EventDispatcher" type="i" /> 
       </script>
       <digests>
-        <digest type="SHA-256" signed="false" value="89506c2257cd009f8be782b7d9d37e058d67a3841ed462450da6583722a57ad0"   />
+        <digest type="SHA-256" signed="false" value="3584bfe31a3114c3b2a977367b719dcc758c9c4a5ad9e983ae196573b4f59230"   />
       </digests>
     </library>
   </libraries>
