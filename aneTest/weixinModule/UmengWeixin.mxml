@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   width="462" height="563" applicationComplete="handler_appComp(event)">
+	<fx:Style source="androidQH360Sample.css"/>
+	<fx:Script>
+		<![CDATA[
+			import com.umeng.ane.UmengExtension;
+			
+			import mx.events.FlexEvent;
+			import mx.utils.ObjectUtil;
+			
+			private var isLang:Boolean = false;
+			private function handler_status($evt:StatusEvent):void
+			{
+				showInfo('level:'+$evt.level+ ',code:'+$evt.code);
+			}
+			
+			protected function handler_appComp($evt:FlexEvent):void 
+			{
+				UmengExtension.getInstance().addEventListener(StatusEvent.STATUS,handler_status);
+				
+			}
+			
+			protected function handler_getStorageBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				showInfo('--');
+			}
+			
+			
+			protected function handler_getSystemInfoBTNclick($evt:MouseEvent):void
+			{
+				clearInfo();
+				
+			}
+			
+			protected function handler_getPackageInfoBTNclick($evt:MouseEvent):void
+			{
+				showInfo('--');
+				
+			}
+			
+			
+			private function showInfo(...$args):void
+			{
+				var __info:String = '';
+				for (var i:int = 0; i < $args.length; i++) 
+				{
+					__info += $args[i] + File.lineEnding;
+				}
+				infoTA.appendText(__info);
+			}
+			
+			
+			
+			private function clearInfo():void
+			{
+				infoTA.text = '';
+			}
+			
+			
+			
+			protected function sdk_handle(event:MouseEvent):void
+			{
+				var b:Button = event.currentTarget as Button;
+				var $pattern:Vector.<String> = new Vector.<String>();
+				
+				switch(b.id)
+				{
+					
+					case "init":
+						UmengExtension.getInstance().UmengInit(true,true,"","com.umeng.share");
+						// 配置SSO
+						$pattern[0] = "100424468";
+						$pattern[1] = "http://www.umeng.com/social";
+						$pattern[2] = "友盟社会化组件（SDK）让移动应用快速整合社交分享功能";
+						// 设置微信分享内容
+						$pattern[3] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能，微信";
+						$pattern[4] = "友盟社会化分享组件-微信";
+						// 设置朋友圈分享的内容
+						$pattern[5] = "http://www.umeng.com/images/pic/social/chart_1.png";
+						$pattern[6] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能，朋友圈";
+						$pattern[7] = "友盟社会化分享组件-朋友圈";
+						// 设置新浪分享内容
+						$pattern[8] = "http://www.umeng.com/images/pic/social/integrated_3.png";
+						// 设置renren分享内容
+						$pattern[9] = "thumb title";
+						$pattern[10] = "http://www.umeng.com/images/pic/social/integrated_3.png";
+						$pattern[11] = "http://www.umeng.com/social";
+						// 设置QQ空间分享内容
+						$pattern[12] = "http://www.umeng.com/images/pic/social/integrated_3.png";
+						$pattern[13] = "http://www.umeng.com/images/pic/social/integrated_3.png";
+						$pattern[14] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能 -- QZone";
+						$pattern[15] = "http://www.umeng.com/social";
+						$pattern[16] = "QZone title";
+						$pattern[17] = "http://www.umeng.com/social";
+						//QQ
+						$pattern[18] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能 -- QQ";
+						$pattern[19] = "hello, title";
+						$pattern[20] = "http://www.google.com.hk";
+						// 设置tencent weibo分享内容
+						$pattern[21] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能，腾讯微博";
+						// 设置tencent mail分享内容， 如果需要分享图片则只支持本地图片
+						$pattern[22] = "share form umeng social sdk";
+						$pattern[23] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能，email";
+						// 设置短信分享内容
+						$pattern[24] = "http://www.umeng.com/images/pic/social/chart_1.png";
+						$pattern[25] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能，短信";
+						// test end 
+						$pattern[26] = "/mnt/sdcard/test.jpg";
+						UmengExtension.getInstance().UmengCustomplatfor(100,$pattern);
+						break;
+					
+					case "A":
+						$pattern[0] = "友盟社会化组件（SDK）让移动应用快速整合社交分享功能";
+						
+						$pattern[1] = "wx967daebe835fbeac";
+						$pattern[2] = "http://m.babytree.com/app/#area-1";
+						$pattern[3] = "友盟社会化组件还不错-WXHandler...";
+						$pattern[4] = "http://www.umeng.com/images/pic/banner_module_social.png";
+						$pattern[5] = "http://sns.whalecloud.com/test_music.mp3";
+						$pattern[6] = "zhangliyong";
+						$pattern[7] = "天籁之音";
+						$pattern[8] = "http://v.youku.com/v_show/id_XNTc0ODM4OTM2.html";
+						$pattern[9] = "友盟社会化组件视频";
+						$pattern[10] = "友盟社会化组件还不错，让移动应用快速整合社交分享功能。www.umeng.com/social";
+						$pattern[11] = "友盟社会化组件还不错-CircleHandler...";
+						UmengExtension.getInstance().UmengCustomplatfor(0,$pattern);
+						break;
+					
+					
+					case "B":
+						$pattern[0] = "友盟社会化组件（SDK）让移动应用快速整合社交分享功能";
+						
+						$pattern[1] = "http://www.umeng.com";
+						$pattern[2] = "/mnt/sdcard/vitamio.jpg";
+						$pattern[3] = "title";
+						$pattern[4] = "http://sns.whalecloud.com/test_music.mp3";
+						$pattern[5] = "zhangliyong";
+						$pattern[6] = "天籁之音";
+						$pattern[7] = "http://www.umeng.com/images/pic/banner_module_social.png";
+						$pattern[8] = "http://v.youku.com/v_show/id_XNTc0ODM4OTM2.html";
+						$pattern[9] = "http://www.umeng.com/images/pmShareImageic/banner_module_social.png";
+						$pattern[10] = "友盟社会化组件视频";
+						$pattern[11] = "友盟社会化组件还不错，让移动应用快速整合社交分享功能。www.umeng.com/social";
+						UmengExtension.getInstance().UmengCustomplatfor(1,$pattern);
+						break;
+					
+					case "C":
+						$pattern[0] = "http://staff2.ustc.edu.cn/~wdw/softdown/index.asp/0042515_05.ANDY.mp3";
+						$pattern[1] = "http://www.umeng.com/images/pic/banner_module_social.png";
+						$pattern[2] = "蔡琴";
+						$pattern[3] = "反方向的钟";
+						$pattern[4] = "http://v.youku.com/v_show/id_XNTc0ODM4OTM2.html";
+						$pattern[5] = "友盟社会化组件视频";
+						$pattern[6] = "http://www.umeng.com";
+						$pattern[7] = "友盟社会化分享-title";
+						$pattern[8] = "友盟社会化组件还不错，让移动应用快速整合社交分享功能 - description";
+						$pattern[9] = "/mnt/sdcard/bigimage.jpg";
+						$pattern[10] = "易信的title ";
+						$pattern[11] = "http://www.umeng.com";
+						$pattern[12] = "易信的title";
+						$pattern[13] = "http://www.umeng.com";
+						$pattern[14] = "友盟社会化组件分享到易信,";
+						$pattern[15] = "yxc0614e80c9304c11b0391514d09f13bf";
+						$pattern[16] = "http://www.umeng.com";
+						$pattern[17] = "yxc0614e80c9304c11b0391514d09f13bf";
+						UmengExtension.getInstance().UmengCustomplatfor(2,$pattern);
+						break;
+					
+					case "D":
+						$pattern[0] = "/mnt/sdcard/test.jpg";
+						$pattern[1] = "facebook 分享组件";
+						$pattern[2] = "This is my facebook social share sdk.";
+						$pattern[3] = "Title - FB";
+						$pattern[4] = "Caption - Fb";
+						$pattern[5] = "独立拆分测试";
+						$pattern[6] = "http://www.umeng.com/";
+						$pattern[7] = "facebook share";
+						UmengExtension.getInstance().UmengCustomplatfor(3,$pattern);
+						break;
+					
+					case "E":
+						$pattern[0] = "友盟社会化分享组件-来往";
+						$pattern[1] = "友盟分享组件";
+						$pattern[2] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能，来往";
+						$pattern[3] = "友盟社会化分享组件-来往动态";
+						$pattern[4] = "友盟分享组件";
+						$pattern[5] = "来自友盟社会化组件（SDK）让移动应用快速整合社交分享功能，来往动态";
+						$pattern[6] = "http://www.umeng.com/social";
+						$pattern[7] = "友盟社会化分享组件-来往动态";
+						$pattern[8] = "友盟分享组件l";
+						$pattern[9] = "laiwangd497e70d4";
+						$pattern[10] = "d497e70d4c3e4efeab1381476bac4c5e ";
+						$pattern[11] = "友盟社会化分享组件-来往";
+						$pattern[12] = "友盟分享组件";
+						UmengExtension.getInstance().UmengCustomplatfor(4,$pattern);
+						break;
+					
+					case "F":
+						$pattern[0] = "www.shadowkong.com";
+						UmengExtension.getInstance().UmengCustomplatfor(5,$pattern);
+						break;
+					
+					//------------------------------------------------------------
+					case "G":
+						$pattern[0] = "友盟社会化组件（SDK）让移动应用快速整合社交分享功能";
+						UmengExtension.getInstance().UmengCustomplatfor(6,$pattern);
+						break;
+					
+					case "H":
+						$pattern[0] = "注册摇一摇分享";
+						$pattern[1] = "美好瞬间，摇摇分享——来自友盟社会化组件";
+						UmengExtension.getInstance().UmengCustomplatfor(7,$pattern);
+						break;
+					
+					case "I":
+						$pattern[0] = "www.shadowkong.com";
+						UmengExtension.getInstance().UmengCustomplatfor(8,$pattern);
+						break;
+					
+					case "J":
+						$pattern[0] = "www.shadowkong.com";
+						UmengExtension.getInstance().UmengCustomplatfor(9,$pattern);
+						break;
+					
+					
+					
+					
+					case "back1":
+						exit();
+						break;
+					
+				}
+			}
+			
+			
+			
+			private function exit():void
+			{
+				NativeApplication.nativeApplication.exit();   
+			}
+			
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<s:states>
+		<s:State name="fun1State"/>
+	</s:states>
+	
+	<s:HGroup width="100%" horizontalAlign="center">
+		<s:Label id="qh360" width="406" height="59" color="#6A13ED" fontFamily="Arial" fontWeight="bold"
+				 text="Umeng ANE (by Rect(rectvv@gmail.com))" textAlign="center" verticalAlign="middle"/>
+	</s:HGroup>
+	
+	
+	
+	<s:TileGroup id="share_button" includeIn="fun1State" width="100%" height="421">
+		
+		<s:Button id="init" width="100" label="初始化" click="sdk_handle(event)" fontSize="14"/>
+		
+		<s:Button id="A" width="151" label="微信" click="sdk_handle(event)" fontSize="14"/>
+		<s:Button id="B" label="QQ" click="sdk_handle(event)"/>
+		<s:Button id="C" label="易信" click="sdk_handle(event)"/>
+		<s:Button id="D" label="FaceBook" click="sdk_handle(event)"/>
+		<s:Button id="E" label="来往" click="sdk_handle(event)"/>
+		<s:Button id="F" label="Instageram" click="sdk_handle(event)"/>
+		
+		<s:Button id="G" label="注册摇一摇打开分享" click="sdk_handle(event)"/>
+		<s:Button id="H" label="注册摇一摇截图 - 分享" click="sdk_handle(event)"/>
+		<s:Button id="I" label="注册摇一摇截图" click="sdk_handle(event)"/>
+		<s:Button id="J" label="注册摇一摇视频截图" click="sdk_handle(event)"/>
+		
+		<s:Button id="back1" label="返回" click="sdk_handle(event)"/>
+		
+	</s:TileGroup>	
+	
+	<s:VGroup width="100%" height="436" horizontalAlign="right">
+		<s:TextArea id="infoTA" width="100%" height="372" color="#030715" textAlign="left"/>
+		<s:HGroup>
+		</s:HGroup>
+	</s:VGroup>
+</s:Application>

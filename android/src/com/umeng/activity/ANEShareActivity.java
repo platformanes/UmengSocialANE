@@ -40,6 +40,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
+ * 友盟社会化  直接分享模块  
+ * 机器:Thl android2.2(不同版本的机器显示效果不尽相同)
  * @author Rect
  * @see rectvv@gmail.com
  * @see www.shadowkong.com

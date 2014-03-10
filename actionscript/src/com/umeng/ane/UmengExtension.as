@@ -78,24 +78,24 @@ package com.umeng.ane
 		} 
 		
 		
-		public function UmengCustomplatfor(key:int):String{
+		public function UmengCustomplatfor(key:int,data:Vector.<String>):String{
 			if(extContext){ 
-				return extContext.call(UMENG_FUNCTION_CP,key)as String;
+				return extContext.call(UMENG_FUNCTION_CP,key,data)as String;
 			}
 			return "call UmengCustomplatfor failed";
 		}
 		
 			
-		public function UmengOther(key:int):String{
+		public function UmengOther(key:int,data:Vector.<String>):String{
 			if(extContext){ 
-				return extContext.call(UMENG_FUNCTION_OTHER,key) as String;
+				return extContext.call(UMENG_FUNCTION_OTHER,key,data) as String;
 			}
 			return "call UmengOther failed";
 		}
 		
-		public function UmengComment(key:int):String{
+		public function UmengComment(key:int,data:Vector.<String>):String{
 			if(extContext){ 
-				return extContext.call(UMENG_FUNCTION_COMM,key) as String;
+				return extContext.call(UMENG_FUNCTION_COMM,key,data) as String;
 			}
 			return "call UmengComment failed";
 		}
