@@ -17,10 +17,10 @@ UmengSocialANE
 * 安卓版使用[RDT](https://github.com/recter/Anti-ADT/tree/master/RDT4.0)打包,关于RDT的更多详情:[传送门](https://github.com/recter/Anti-ADT/blob/master/RDT4.0/README.md)
 * `BuildAPK/shareModule` 对应 `分享接口` 模块
 * `BulidAPK/weiModule` 对应 `微信/QQ` 模块
-## android版本回调的解决方案
+## android版本兼容的解决方案
 友盟SDK的注册回调是调用传入的activity的onActivityResult函数,但是对于AIR项目而言AS开发者用普通的方法无法修改主activity的代码.但是并不是不能修改.
 
-* **修改AIR主activity**
+* **回调方案①修改AIR主activity**
  
 AIR项目的主activity代码模版分别在ADT.jar中的:
 
@@ -95,11 +95,32 @@ AIR项目的主activity代码模版分别在ADT.jar中的:
 
 PS:以上方式需要一定的逆向思维.仅仅提供一个可行的方式.
 
-* **修改UmengSDK**
+* **回调方案②修改UmengSDK**
 
 这种方式就很简单了,直接修改UmengSDK 在关键的地方把原本的回调方式改掉.在这里不在赘述,有兴趣的可自行研究.
+
+* **无法获取摇一摇音效的解决方案**
+
+使用apktool,反编译把`res/raw`文件夹下的0字节的文件随便写入什么数据.参照 [传送门](https://gist.github.com/recter/8051740)
+
+* **反编译后无法全屏的解决方案**
+
+在反编译后,在`AndroidManifest.xml`文件中加入:
+
+	<supports-screens android:largeScreens="true"
+	        android:smallScreens="true"
+	        android:anyDensity="true"
+	        android:normalScreens="true"/>
+
+* **最后提醒**
+
+本ANE使用的android测试机版本是android2.2,无法保证此ANE在高版本的android设备中运行正常.
+
 ## iOS
+
 * loading
+
+
 ## About Me
 
 * [platformANEs](https://github.com/platformanes)由 [zrong](http://zengrong.net) 和 [rect](http://www.shadowkong.com/) 共同发起并完成。
