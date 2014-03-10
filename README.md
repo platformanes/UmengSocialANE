@@ -62,7 +62,7 @@ AIR项目的主activity代码模版分别在ADT.jar中的:
 		     {
 		   	  method = sAndroidActivityWrapperClass.getMethod("UmengCallBack", new Class[] { Integer.TYPE, Integer.TYPE, Intent.class });
 		      if(method != null)
-		    	  InvokeMethod(method, new Object[] { Integer.valueOf(requestCode), Integer.valueOf(resultCode), data });
+			 method.invoke(null, new Object[] { Integer.valueOf(requestCode), Integer.valueOf(resultCode), data });
 		     }
 		      
 		     //反射结束 恢复现场
